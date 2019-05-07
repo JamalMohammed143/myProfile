@@ -5,10 +5,59 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, minimum-scale=1 maximum-scale=1">
     <title>Jamal Animation</title>
+    <link rel="icon" href="http://www.cssforum.com.pk/images/avatars/avatar58006_1.gif" />
+    <link rel="stylesheet" href="css/style.css" />
 </head>
 
 <body>
-    <h1>Hello World</h1>
+    <div class="animate-box">
+        <p class="header-img"><img src="img/eid-mubarak.png" alt="Image" /></p>
+
+        <h1 id="greeting"></h1>
+        <h1 class="from-text-ani" id="fromText"><small>From</small></h1>
+        <h1 id="fromName"></h1>
+
+        <p class="msg-img"><img src="img/mubarakmsg.jpg" alt="Image"></p>
+    </div>
+
+    <script type="text/javascript">
+        function rgb(param) {
+            if (param == 'greet') {
+                var clrs = ["red", "orange", "blue", "green", "#ffffff"];
+                return clrs[Math.ceil(Math.random() * clrs.length)];
+            } else {
+                var clrs = ["black", "white", "red", "blue", "green"];
+                return clrs[Math.ceil(Math.random() * clrs.length)];
+            }
+        }
+
+        var greetEl = document.querySelector("#greeting");
+        var greetText = "Happy Ramadan Mubarak!";
+        var insi = 0;
+        var insertText = setInterval(function() {
+            greetEl.innerHTML += '<span style="color: ' + rgb('greet') + '">' + greetText[insi] + '</span>';
+            insi++;
+            if (insi >= greetText.length) {
+                clearInterval(insertText);
+                document.querySelector("#fromText").classList.add('show');
+                callGreeting();
+            }
+        }, 350);
+
+        function callGreeting() {
+            var greetEl2 = document.querySelector("#fromName");
+            var fromText = "Jamal & Parveen";
+            var insi2 = 0;
+            var insertText2 = setInterval(function() {
+                greetEl2.innerHTML += '<span style="color: ' + rgb() + '">' + fromText[insi2] + '</span>';
+                insi2++;
+                if (insi2 >= fromText.length) {
+                    clearInterval(insertText2);
+                }
+            }, 350);
+        }
+
+    </script>
 </body>
 
 </html>
